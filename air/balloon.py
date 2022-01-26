@@ -1,34 +1,3 @@
-"""
-Class balloon:
-
-color
-max_volume
-pop()
-volume_ml
-
-"""
-
-import time
-
-class Main:
-    import Balloon
-    def current_time_ms():
-        return round(time.time() * 1000)
-    
-    print(current_time_ms())
-    first_balloon = Balloon("Red")
-    second_balloon = Balloon("Blue")
-    balloon_list = []
-    for i in range(10):
-        balloon_list.append(Balloon("Green"))
-    #While game is running
-    first_balloon.update(current_time_ms())
-    first_balloon.pop()
-    
-    for balloon in balloon_list:
-        print(balloon)
-
-
 class Balloon:
     def __init__(self, color):
         self.popped = False
@@ -63,3 +32,7 @@ class Balloon:
         
         self.update_time_ms = time_ms
 
+    def fill(self, volume_ml):
+        self.volume_ml += volume_ml
+        if self.volume_ml > self.volume_max_ml:
+            self.pop()
