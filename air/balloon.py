@@ -1,10 +1,10 @@
 class Balloon:
     def __init__(self, color):
         self.popped = False
-        self.sealed = None
-        self.volume_ml = None
-        self.max_volume_ml = None
-        self.update_time_ms = None
+        self.sealed = False
+        self.volume_ml = 0
+        self.max_volume_ml = 1000
+        self.update_time_ms = 0
         self.color = color
 
     def pop(self):
