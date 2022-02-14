@@ -1,10 +1,12 @@
 class Tank:
-    def __init__(self, air_type):
+    def __init__(self, max_volume_L):
         self.volume_L = 0
-        self.max_volume_L = 25
-        self.air_type = air_type
+        self.max_volume_L = max_volume_L
     
-    def release_air(self, volume_ml):
+    def get_max_volume(self):
+        return self.max_volume_L
+
+    def release(self, volume_ml):
         amount = volume_ml / 1000
         if amount <= self.volume_L:
             self.volume_L -= amount

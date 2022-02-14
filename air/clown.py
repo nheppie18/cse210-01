@@ -1,5 +1,5 @@
 from balloon import Balloon
-from tank import Tank
+from airtank import Tank
 from wallet import Wallet
 
 class Clown:
