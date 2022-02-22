@@ -1,17 +1,17 @@
 from balloon import Balloon
-from airtank import Tank
+from airtank import Airtank
 from wallet import Wallet
+from person import Person
 
-class Clown:
+class Clown(Person):
     def __init__(self):
-        self._tank = Tank("Helium")
-        self._wallet = Wallet(0)
+        self.__tank = Airtank("Helium")
 
-    def buy_balloon(self, cost):
+    def buy_balloon(self, cost) -> Balloon:
         balloon = Balloon("Red")
-        balloon.fill(self._tank.release_air(500))
-        self._wallet.add_transaction(cost)
+        balloon.fill(self.__tank.release_air(500))
+        super()._wallet.add_transaction(cost)
         return balloon
 
     def __str__(self):
-        return f"Clown (${self._wallet.get_balance():.2f})"
+        return f"Clown (${super()._wallet.get_balance():.2f})"
