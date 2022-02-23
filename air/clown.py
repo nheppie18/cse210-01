@@ -10,7 +10,7 @@ class Clown(Person):
     def buy_balloon(self, cost) -> Balloon:
         balloon = Balloon("Red")
         balloon.fill(self.__tank.release_air(500))
-        super()._wallet.add_transaction(cost)
+        self._wallet.add_transaction(cost)
         return balloon
 
     def __str__(self):
