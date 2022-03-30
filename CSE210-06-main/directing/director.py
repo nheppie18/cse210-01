@@ -10,7 +10,7 @@ from constants import *
 
 class Director: 
     def __init__(self, video_service) -> None:
-        self.video_service = video_service
+        self._video_service = video_service
         self._cast = Cast()
         self._scripting = Script()
         self._scene_manager = SceneManager()
@@ -19,7 +19,7 @@ class Director:
         self._scene_manager.prepare_scene(scene, self._cast, self._scripting)
 
     def start_game(self, ):
-        self.on_next(START_GAME)
+        self.on_next(NEW_GAME)
         self._execute_actions(INITIALIZE)
         self._execute_actions(LOAD)
         while self._video_service.is_window_open():

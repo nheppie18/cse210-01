@@ -25,7 +25,7 @@ from scripting.draw_enemy_ship_action import DrawEnemyShipAction
 from scripting.start_drawing_action import StartDrawingAction
 from scripting.draw_lasers_action import DrawLaserAction
 from scripting.control_ship_action import ControlShipAction
-from scripting.collide_borders_ship import CollideBordersShip
+from scripting.collide_borders_ship import CollideBordersShipAction
 from scripting.collide_enemy_laser import CollideEnemyLaser
 from scripting.collide_enemy_ship import CollideEnemyShip
 from scripting.draw_ship_action import DrawShipAction
@@ -56,7 +56,7 @@ class SceneManager:
     DRAW_HEAVY_ENEMY_LASERS_ACTION = DrawLaserAction(VIDEO_SERVICE, HEAVY_ENEMY_SHIP)
     DRAW_MEDIUM_ENEMY_LASERS_ACTION = DrawLaserAction(VIDEO_SERVICE, MEDIUM_ENEMY_SHIP)
     DRAW_LIGHT_ENEMY_LASERS_ACTION = DrawLaserAction(VIDEO_SERVICE, LIGHT_ENEMY_SHIP)
-    DRAW_SHIP_ACTION = DrawShipAction(VIDEO_SERVICE)
+    DRAW_SHIP_ACTION = DrawShipAction()
     DRAW_HUD_ACTION = DrawHudAction(VIDEO_SERVICE)
     DRAW_DIALOG_ACTION = DrawDialogAction(VIDEO_SERVICE)
     DRAW_ENEMY_SHIP_ACTION = DrawEnemyShipAction(VIDEO_SERVICE)
@@ -143,7 +143,7 @@ class SceneManager:
     
     def _add_score(self, cast):
         cast.clear_actors(SCORE_GROUP)
-        text = Text(SCORE_FORMAT, FONT_FILE, ALIGN_RIGHT, FONT_FILE, FONT_SMALL)
+        text = Text(SCORE_FORMAT, FONT_FILE, ALIGN_RIGHT, FONT_SMALL)
         position = Point(CENTER_X, HUD_MARGIN)
         label = Label(text, position)
         cast.add_actor(SCORE_GROUP, label)
