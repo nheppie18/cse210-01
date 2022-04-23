@@ -6,22 +6,26 @@ game_continues = True
 winner = None
 def make_board():
     board = []
-    for tile in range(9):
+    for tile in range(1, 10):
         board.append(tile)
     return board
 
 def display_board(board):
     print()
     print(f"{board[0]} | {board[1]} | {board[2]}")
-    print("--+--+--")
+    print("---+---+---")
     print(f"{board[3]} | {board[4]} | {board[5]}")
-    print("--+--+--")
+    print("---+---+---")
     print(f"{board[6]} | {board[7]} | {board[8]}")
     print()
 
 def player_turn(player, board):
-    tile = int(input(f"Player {player} please choose a tile (0-8): "))
-    board[tile] = player
+    tile = int(input(f"Player {player} please choose a tile (1-9): "))
+    while tile >= 10:
+        tile = int(input("Please choose a number between 1-9: "))
+    while board[tile - 1] == 'x' or board[tile - 1] == 'o':
+        tile = int(input("Tile is already taken please choose a different one (1-9):"))
+    board[tile - 1] = player
 
 def player_switch(player):
     if player == "o":
